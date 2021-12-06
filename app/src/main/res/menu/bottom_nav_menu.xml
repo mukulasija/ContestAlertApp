@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/codeforces"
+    android:title="Codeforces"
+    android:icon="@drawable/codeforces"
+    ></item>
+    <item
+        android:icon="@drawable/code_chef"
+        android:id="@+id/codechef"
+        android:title="CodeChef"
+        ></item>
+    <item
+        android:icon="@drawable/leet_code"
+        android:id="@+id/leetcode"
+        android:title="LeetCode"
+        ></item>
+</menu>
