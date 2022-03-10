@@ -3,15 +3,15 @@
 <item
     android:id="@+id/codeforces"
     android:title="Codeforces"
-    android:icon="@drawable/codeforces"
+    android:icon="@drawable/cf"
     ></item>
     <item
-        android:icon="@drawable/code_chef"
+        android:icon="@drawable/cc"
         android:id="@+id/codechef"
         android:title="CodeChef"
         ></item>
     <item
-        android:icon="@drawable/leet_code"
+        android:icon="@drawable/lc"
         android:id="@+id/leetcode"
         android:title="LeetCode"
         ></item>

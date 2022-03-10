@@ -41,8 +41,8 @@ class ContestListAdapter(private val listener : ContestClicked,public val site :
     override fun onBindViewHolder(holder: ContestViewHolder, position: Int) {
         val currentItem = items[position]
         holder.titleView.text = currentItem.title
-        holder.starTime.text = "Start:    "+currentItem.StartTime.getDateWithServerTimeStamp()
-        holder.endTime.text = "End  :    "+currentItem.EndTime.getDateWithServerTimeStamp()
+        holder.starTime.text = "Start:    "+currentItem.StartTime
+        holder.endTime.text = "End  :    "+currentItem.EndTime
         holder.logo.setImageResource(logo)
         holder.card.setCardBackgroundColor(color)
     }
@@ -71,7 +71,7 @@ class ContestListAdapter(private val listener : ContestClicked,public val site :
         if(site.equals("code_chef"))
         {
             color= Color.parseColor("#BCBCBC")
-            return R.drawable.code_chef
+            return R.drawable.codechef1
         }
         if(site.equals("codeforces"))
         {

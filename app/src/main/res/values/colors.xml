@@ -10,4 +10,6 @@
     <color name="codeforces">#BCBCBC</color>
     <color name="codechef">#A97C00</color>
     <color name="leetcode">#E6C35F</color>
+    <color name="th_green">#528956</color>
+    <color name="check_item_color">#36F4A8</color>
 </resources>
