@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -41,8 +42,8 @@ class ContestListAdapter(private val listener : ContestClicked,public val site :
     override fun onBindViewHolder(holder: ContestViewHolder, position: Int) {
         val currentItem = items[position]
         holder.titleView.text = currentItem.title
-        holder.starTime.text = "Start:    "+currentItem.StartTime
-        holder.endTime.text = "End  :    "+currentItem.EndTime
+        holder.starTime.text = "Start:    "+currentItem.StartTime.getDateWithServerTimeStamp()
+        holder.endTime.text = "End  :    "+currentItem.EndTime.getDateWithServerTimeStamp()
         holder.logo.setImageResource(logo)
         holder.card.setCardBackgroundColor(color)
     }
@@ -108,7 +109,11 @@ class ContestListAdapter(private val listener : ContestClicked,public val site :
     @SuppressLint("NewApi")
     private fun String.getDateWithServerTimeStamp(): String {
         val string = this
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH)
+        var formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH)
+        if(site=="code_chef")
+        {
+            formatter= DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss 'UTC'",Locale.ENGLISH)
+        }
         val datetime = LocalDateTime.parse(string,formatter)
         val format = DateTimeFormatter.ofPattern("dd-MM-yyyy | hh:mm a")
         return datetime!!.format(format)
