@@ -1,4 +1,4 @@
-## Contest Calender
+## Coders Calender
 An Android application 📱 built using Kotlin ♨️ 
 -------------------
 
@@ -15,7 +15,7 @@ An Android application 📱 built using Kotlin ♨️
 ## 🚀 Technology Used
 
 * Contest is build using Kotlin
-* [Kontest](https://drive.google.com/drive/folders/1dZWGQcxY-GsFRaXbKPndGivrUoZWMB-p) Api for Contests Data
+* [Kontest](https://kontests.net/api) Api for Contests Data
 
 
 
@@ -24,8 +24,8 @@ An Android application 📱 built using Kotlin ♨️
 
 ||||
 |:----------------------------------------:|:-----------------------------------------:|:-----------------------------------------: |
-| ![Imgur](screenshots/0.jpg) | ![Imgur](screenshots/1.jpg) | ![Imgur](screenshots/2.jpg) |
-| ![Imgur](screenshots/3.jpg) | ![Imgur](screenshots/4.jpg) | ![Imgur](screenshots/6.jpg) |
+| ![Imgur]() | ![Imgur]() | ![Imgur]() |
+| ![Imgur]() | ![Imgur]() | ![Imgur]() |
 
 ## ⚡ Dependencies Used
 ```sh
