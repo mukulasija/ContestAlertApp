@@ -2,28 +2,24 @@ package com.example.contestalert
 
 import android.annotation.SuppressLint
 import android.graphics.Color
-import android.media.Image
+import android.os.Build
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import org.w3c.dom.Text
-import java.lang.Exception
-import java.text.DateFormat
-import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.coroutines.coroutineContext
-import kotlin.properties.Delegates
+import kotlin.math.log
 
 class ContestListAdapter(private val listener : ContestClicked,public val site : String) : RecyclerView.Adapter<ContestViewHolder>() {
     private val items : ArrayList<Contest> = ArrayList()
@@ -105,20 +101,54 @@ class ContestListAdapter(private val listener : ContestClicked,public val site :
 //    LocalDateTime datetime = LocalDateTime.parse(string,formatter);
 //    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm a");
 //    datetime.format(format)
-
+fun String.toDate(dateFormat: String = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timeZone: TimeZone = TimeZone.getTimeZone("UTC")): Date {
+    val parser = SimpleDateFormat(dateFormat, Locale.getDefault())
+    parser.timeZone = timeZone
+    return parser.parse(this)
+}
+    fun Date.formatTo(dateFormat: String, timeZone: TimeZone = TimeZone.getDefault()): String {
+        val formatter = SimpleDateFormat(dateFormat, Locale.getDefault())
+        formatter.timeZone = timeZone
+        return formatter.format(this)
+    }
     @SuppressLint("NewApi")
     private fun String.getDateWithServerTimeStamp(): String {
         val string = this
-        var formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH)
+//        var formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH)
+        var nn : String? = null
         if(site=="code_chef")
         {
-            formatter= DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss 'UTC'",Locale.ENGLISH)
+           nn = string.toDate("yyyy-MM-dd HH:mm:ss 'UTC'").formatTo("dd-MM-yyyy | hh:mm a")
         }
-        val datetime = LocalDateTime.parse(string,formatter)
-        val format = DateTimeFormatter.ofPattern("dd-MM-yyyy | hh:mm a")
-        return datetime!!.format(format)
+        else
+        {
+            nn = string.toDate().formatTo("dd-MM-yyyy | hh:mm a")
+        }
+        return nn
+//        Log.d("nn", nn.toString());
+//        if(site=="code_chef")
+//        {
+//            formatter= DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss 'UTC'",Locale.ENGLISH)
+//        }
+//        val datetime = LocalDateTime.parse(string,formatter)
+//        Log.d("date ",datetime.toString());
+//        Log.d("zone" , datetime.atZone(ZoneId.systemDefault()).toString())
+//        val newdate = datetime.atZone(ZoneId.systemDefault())
+////        datetime.atZone(ZoneId.systemDefault())
+//        val format = DateTimeFormatter.ofPattern("dd-MM-yyyy | hh:mm a")
+////        val cal = Calendar.getInstance()
+////        val tz = cal.timeZone
+////        val ind = ZoneId.of("Asia/Kolkata")
+////        datetime.atZone(ind)
+//        Log.d("result",newdate!!.format(format))
+//        return datetime.format(format)
+
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    public fun convert(date : Date) : LocalDate{
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+    }
     }
 class ContestViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView)
 {
