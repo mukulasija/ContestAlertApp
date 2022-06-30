@@ -10,7 +10,7 @@ An Android application 📱 built using Kotlin ♨️
 * App consists of Different Coding Platforms
 * Get Details of upcomming Contests
 * Set Reminder of upcomming Contest.
-* Set Notification Alerts.
+
 
 ## 🚀 Technology Used
 
