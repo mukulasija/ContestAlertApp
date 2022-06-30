@@ -3,6 +3,7 @@ package com.example.contestalert
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mAdapter: ContestListAdapter
     private lateinit var binding : ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
@@ -25,14 +27,14 @@ class MainActivity : AppCompatActivity() {
 //        mAdapter=ContestListAdapter(this)
 //
 //        binding.recyclerView.adapter = mAdapter
-        val firstFragment = ContestList("codeforces","Codeforces")
-        val secondFragment = ContestList("code_chef","CodeChef")
+        val secondFragment = ContestList("codeforces","Codeforces")
+        val firstFragment = ContestList("code_chef","CodeChef")
         val thirdFragment = ContestList("leet_code","LeetCode")
         setCurrentFragment(firstFragment)
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.codeforces->setCurrentFragment(firstFragment)
-                R.id.codechef->setCurrentFragment(secondFragment)
+                R.id.codeforces->setCurrentFragment(secondFragment)
+                R.id.codechef->setCurrentFragment(firstFragment)
                 R.id.leetcode->setCurrentFragment(thirdFragment)
             }
             true

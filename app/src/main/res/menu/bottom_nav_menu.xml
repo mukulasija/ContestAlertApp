@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item
-    android:id="@+id/codeforces"
-    android:title="Codeforces"
-    android:icon="@drawable/cf"
-    ></item>
+
     <item
-        android:icon="@drawable/cc"
+        android:icon="@drawable/cc_menu_item_drawable"
         android:id="@+id/codechef"
-        android:title="CodeChef"
-        ></item>
+        android:title="@string/codechef" />
     <item
-        android:icon="@drawable/lc"
+        android:id="@+id/codeforces"
+        android:title="@string/codeforces"
+        android:icon="@drawable/cf_menu_item_drawable" />
+    <item
+        android:icon="@drawable/lc_menu_item_drawable"
         android:id="@+id/leetcode"
-        android:title="LeetCode"
-        ></item>
+        android:title="@string/leetcode" />
 </menu>

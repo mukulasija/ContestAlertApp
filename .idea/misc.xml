@@ -12,6 +12,8 @@
         <entry key="app/src/main/res/layout/fragment_contest_list.xml" value="0.16354166666666667" />
         <entry key="app/src/main/res/layout/item_contest.xml" value="0.4" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.16354166666666667" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3275" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3275" />
       </map>
     </option>
   </component>

@@ -60,58 +60,17 @@ class ContestList(public val site : String,public val siteName : String) : Fragm
             },
             { error ->
                 Toast.makeText(context,error.message,Toast.LENGTH_SHORT).show()
-//                Toast.makeText(this,error.message, Toast.LENGTH_LONG).show()
             }
         )
 // Access the RequestQueue through your singleton class.
         MySingleton.getInstance(requireView().context).addToRequestQueue(jsonObjectRequest)
-//        val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null,
-//            {
-//
-////                val ContestJsonArray = it.getJSONArray()
-//                val ContestArray = ArrayList<Contest>()
-//                val ContestJsonArray = it.getJSONArray("")
-//
-//                for(i in 0 until ContestJsonArray.length())
-//                {
-//                    val ContestJsonObject = ContestJsonArray.getJSONObject(i)
-//                    val contest = Contest(
-//                        ContestJsonObject.getString("name"),
-//                        ContestJsonObject.getString("start_time")
-//                    )
-//                   ContestArray.add(contest)
-//                }
-//                mAdapter.updateList(ContestArray)
-//            },
-//            {
-//            }
-//        )
-//
-//        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest)
-
     }
-
-    override fun onItemClicked(item: Contest) {
-       Toast.makeText(context,item.title+" clicked",Toast.LENGTH_SHORT).show()
-    }
-
 
     override fun reminderClicked(item: Contest) {
-
-//        Toast.makeText(context,item.StartTime,Toast.LENGTH_SHORT).show()
         val startMillis = item.StartTime.getDateWithServerTimeStamp(site).toDate("dd-MM-yyyy | hh:mm a",
             TimeZone.getDefault()).time
         val endMillis = item.EndTime.getDateWithServerTimeStamp(site).toDate("dd-MM-yyyy | hh:mm a",
             TimeZone.getDefault()).time
-//        Toast.makeText(context,strt.toString(),Toast.LENGTH_SHORT).show();
-//        val startMillis: Long = Calendar.getInstance().run {
-//            set(2012, 0, 19, 7, 30)
-//            timeInMillis
-//        }
-//        val endMillis: Long = Calendar.getInstance().run {
-//            set(2012, 0, 19, 8, 30)
-//            timeInMillis
-//        }
         val intent = Intent(Intent.ACTION_INSERT)
             .setData(CalendarContract.Events.CONTENT_URI)
             .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startMillis)

@@ -2,4 +2,7 @@
     <string name="app_name">ContestAlert</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="codechef">CodeChef</string>
+    <string name="codeforces">Codeforces</string>
+    <string name="leetcode">LeetCode</string>
 </resources>

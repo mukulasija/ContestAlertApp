@@ -23,9 +23,7 @@ class ContestListAdapter(private val listener : ContestClicked,public val site :
       val view = LayoutInflater.from(parent.context).inflate(R.layout.item_contest,parent,false)
         val viewHolder = ContestViewHolder(view)
        color = getcolor(parent)
-        view.setOnClickListener{
-            listener.onItemClicked(items[viewHolder.adapterPosition])
-        }
+
         val reminder = view.findViewById<TextView>(R.id.reminder)
         reminder.setOnClickListener {
             listener.reminderClicked(items[viewHolder.adapterPosition])
@@ -86,21 +84,21 @@ class ContestListAdapter(private val listener : ContestClicked,public val site :
         if(site.equals("code_chef"))
         {
             color= Color.parseColor("#BCBCBC")
-            return R.drawable.codechef1
+            return R.drawable.codechef_cardview_drawable
         }
         if(site.equals("codeforces"))
         {
             color= Color.parseColor("#A97C00")
-            return  R.drawable.codeforces
+            return  R.drawable.codeforces_cardview_drawable
 
         }
         if(site.equals("leet_code"))
         {
             color= Color.parseColor("#FF3131")
-            return R.drawable.leet_codenew
+            return R.drawable.leetcode_cardview_drawable
 
         }
-        return R.drawable.codeforces
+        return R.drawable.codeforces_cardview_drawable
     }
 
 
@@ -138,6 +136,5 @@ class ContestViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView)
 //    val image : ImageView = itemView.findViewById(R.id.thumbnail)
 }
 interface ContestClicked{
-    fun onItemClicked(item : Contest)
     fun reminderClicked(item: Contest)
 }
