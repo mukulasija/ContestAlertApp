@@ -98,6 +98,7 @@
                 android:layout_height="1dp"
                 android:background="@color/black"></TableRow>
             <TextView
+                android:id="@+id/reminder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Set Reminder"
@@ -107,6 +108,7 @@
                 app:layout_constraintLeft_toLeftOf="@id/hr2"
                 ></TextView>
             <TextView
+                android:id="@+id/notification"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

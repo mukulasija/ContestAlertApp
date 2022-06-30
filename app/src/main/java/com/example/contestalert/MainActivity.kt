@@ -25,9 +25,9 @@ class MainActivity : AppCompatActivity() {
 //        mAdapter=ContestListAdapter(this)
 //
 //        binding.recyclerView.adapter = mAdapter
-        val firstFragment = ContestList("codeforces")
-        val secondFragment = ContestList("code_chef")
-        val thirdFragment = ContestList("leet_code")
+        val firstFragment = ContestList("codeforces","Codeforces")
+        val secondFragment = ContestList("code_chef","CodeChef")
+        val thirdFragment = ContestList("leet_code","LeetCode")
         setCurrentFragment(firstFragment)
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId){
