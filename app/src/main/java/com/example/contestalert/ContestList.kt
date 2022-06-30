@@ -43,10 +43,10 @@ class ContestList(public val site : String,public val siteName : String) : Fragm
         val url = "https://kontests.net/api/v1/"+site
         val jsonObjectRequest = JsonArrayRequest(
             Request.Method.GET, url, null,
-            Response.Listener { response ->
+            { response ->
                 val ContestJsonArray = response
                 val ContestArray = ArrayList<Contest>()
-                for(i in 0 until ContestJsonArray.length())
+                for(i in ContestJsonArray.length()-1 downTo 0)
                 {
                     val ContestJsonObject = ContestJsonArray.getJSONObject(i)
                     val contest = Contest(
@@ -58,12 +58,11 @@ class ContestList(public val site : String,public val siteName : String) : Fragm
                 }
                 mAdapter.updateList(ContestArray)
             },
-            Response.ErrorListener { error ->
+            { error ->
                 Toast.makeText(context,error.message,Toast.LENGTH_SHORT).show()
 //                Toast.makeText(this,error.message, Toast.LENGTH_LONG).show()
             }
         )
-
 // Access the RequestQueue through your singleton class.
         MySingleton.getInstance(requireView().context).addToRequestQueue(jsonObjectRequest)
 //        val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null,

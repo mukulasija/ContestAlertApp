@@ -1,9 +1,7 @@
 package com.example.contestalert
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Build
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,14 +11,9 @@ import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import org.w3c.dom.Text
-import java.text.SimpleDateFormat
 import java.time.LocalDate
-import java.time.LocalDateTime
 import java.time.ZoneId
-import java.time.format.DateTimeFormatter
 import java.util.*
-import kotlin.math.log
 
 class ContestListAdapter(private val listener : ContestClicked,public val site : String) : RecyclerView.Adapter<ContestViewHolder>() {
     private val items : ArrayList<Contest> = ArrayList()
@@ -42,9 +35,29 @@ class ContestListAdapter(private val listener : ContestClicked,public val site :
 
     override fun onBindViewHolder(holder: ContestViewHolder, position: Int) {
         val currentItem = items[position]
+        val startMillis = currentItem.StartTime.getDateWithServerTimeStamp(site).toDate("dd-MM-yyyy | hh:mm a",
+            TimeZone.getDefault()).time
+        val endMillis = currentItem.EndTime.getDateWithServerTimeStamp(site).toDate("dd-MM-yyyy | hh:mm a",
+            TimeZone.getDefault()).time
+        val diff = endMillis-startMillis
+        val seconds : Double= (diff / 1000).toDouble()
+        val minutes : Double= seconds / 60
+        val hours : Double = minutes / 60
+        val days : Double= hours / 24
+        val years : Double = days/365
+        var duration : String? = null
+        if(days>1)
+           duration = days.toInt().toString()+" Days"
+        else
+            if(hours>1)
+                duration = hours.toString()+" Hours"
+        else
+            if(minutes>1)
+                duration = minutes.toString()+" Minutes"
+        holder.duration.text = duration
         holder.titleView.text = currentItem.title
-        holder.starTime.text = "Start:    "+currentItem.StartTime.getDateWithServerTimeStamp(site)
-        holder.endTime.text = "End  :    "+currentItem.EndTime.getDateWithServerTimeStamp(site)
+        holder.starTime.text = currentItem.StartTime.getDateWithServerTimeStamp(site)
+        holder.endTime.text = currentItem.EndTime.getDateWithServerTimeStamp(site)
         holder.logo.setImageResource(logo)
         holder.card.setCardBackgroundColor(color)
     }
@@ -115,10 +128,11 @@ class ContestListAdapter(private val listener : ContestClicked,public val site :
 class ContestViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView)
 {
     val titleView : TextView = itemView.findViewById(R.id.name)
-    val starTime : TextView = itemView.findViewById(R.id.starttime)
-    val endTime : TextView = itemView.findViewById(R.id.endtime)
+    val starTime : TextView = itemView.findViewById(R.id.date_start)
+    val endTime : TextView = itemView.findViewById(R.id.date_end)
     val logo : ImageView = itemView.findViewById(R.id.logo)
     val card : CardView = itemView.findViewById(R.id.card)
+    val duration : TextView = itemView.findViewById(R.id.duration)
 //    val titleView : TextView = itemView.findViewById(R.id.title)
 //    val author : TextView = itemView.findViewById(R.id.author)
 //    val image : ImageView = itemView.findViewById(R.id.thumbnail)

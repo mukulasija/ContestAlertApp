@@ -48,7 +48,7 @@
             <TextView
                     android:id="@+id/name"
                     android:textStyle="bold"
-                    android:text="Codeforces Round 116"
+                    android:text="Codeforces Round #116 (Div.2)"
                     android:textColor="@color/black"
                     android:padding="10dp"
                     android:layout_width="match_parent"
@@ -73,21 +73,47 @@
                     android:layout_height="wrap_content"
                         android:id="@+id/starttime"
                     android:text="Start Time : "
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:layout_marginTop="10dp"
                     app:layout_constraintTop_toBottomOf="@id/name"
                     app:layout_constraintLeft_toLeftOf="parent"
                     ></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/date_start"
+                android:text="04-07-2022 | 08:05 pm"
+
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="@id/starttime"
+                app:layout_constraintTop_toTopOf="@id/starttime"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                ></TextView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/endtime"
                     android:textColor="@color/black"
                     android:text="End Time : "
+                    android:textStyle="bold"
                     android:layout_marginBottom="10dp"
                     app:layout_constraintTop_toBottomOf="@id/starttime"
                     app:layout_constraintLeft_toLeftOf="@id/starttime"
                     ></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/date_end"
+                android:text="04-07-2022 | 10:05 pm"
+
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="@id/endtime"
+                app:layout_constraintTop_toTopOf="@id/endtime"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                ></TextView>
             <TableRow
                 android:id="@+id/hr2"
                 android:layout_marginTop="10dp"
@@ -103,19 +129,22 @@
                 android:layout_height="wrap_content"
                 android:text="Set Reminder"
                 android:textColor="@color/black"
+                android:textStyle="bold"
                 android:drawableLeft="@drawable/ic_baseline_notification_important_24"
+                app:layout_constraintRight_toRightOf="@id/hr2"
+                android:layout_marginRight="10dp"
                 app:layout_constraintTop_toBottomOf="@id/hr2"
-                app:layout_constraintLeft_toLeftOf="@id/hr2"
                 ></TextView>
             <TextView
-                android:id="@+id/notification"
+                android:id="@+id/duration"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_baseline_access_alarm_24"
-                android:text="Set Notification"
-                app:layout_constraintRight_toRightOf="@id/hr2"
-                app:layout_constraintTop_toBottomOf="@id/hr2"></TextView>
+                android:layout_marginLeft="5dp"
+                android:text="2 Hours"
+                app:layout_constraintTop_toBottomOf="@id/hr2"
+                app:layout_constraintLeft_toLeftOf="@id/hr2"
+                ></TextView>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
