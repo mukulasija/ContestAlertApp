@@ -15,7 +15,7 @@ An Android application 📱 built using Kotlin ♨️
 ## 🚀 Technology Used
 
 * Contest is build using Kotlin
-* [Kontest](https://kontests.net/api) Api for Contests Data
+* [Contest](https://kontests.net/api) Api for Contests Data
 
 
 
@@ -32,4 +32,3 @@ An Android application 📱 built using Kotlin ♨️
 * Volley 
 * Cardview
 ```
-
