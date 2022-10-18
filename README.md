@@ -15,7 +15,7 @@ An Android application 📱 built using Kotlin ♨️
 ## 🚀 Technology Used
 
 * Contest is build using Kotlin
-* [Contest](https://kontests.net/api) Api for Contests Data
+* [kontest](https://kontests.net/api) Api for Contests Data
 
 
 
