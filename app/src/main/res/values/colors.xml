@@ -12,4 +12,7 @@
     <color name="leetcode">#E6C35F</color>
     <color name="th_green">#528956</color>
     <color name="check_item_color">#36F4A8</color>
+    <color name="yellow_custom">#FFEE58</color>
+    <color name="light_blue_custom">#29B6F6</color>
+    <color name="light_green_custom">#B4F44E</color>
 </resources>
