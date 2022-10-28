@@ -13,6 +13,5 @@
         tools:listitem="@layout/item_contest"
         android:id="@+id/recyclerView"
         />
-    >
 
 </FrameLayout>
